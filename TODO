@@ -1,0 +1,12 @@
+x Figure out how to generate testcard.tex from *.dtx
+x Figure out how to generate examplecard.tex from *.dtx
+x Add building testcard.pdf and examplecard.pdf to Makefile
+x Use testcard.pdf and examplecard.pdf in vistaprint.pdf
+x Remove autogeneration comments from final listing
+x Copyright notices for everything
+x Figure out why the index sucks balls
+x Make index into two columns
+x Clean up the Makefile's rm -f'ing
+
+Add hypersetup entries for title, author, etc.
+Fix checksum prior to release

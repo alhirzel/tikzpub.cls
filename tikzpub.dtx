@@ -1,0 +1,430 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2012 by Alex Hirzel
+%
+% This file may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.2 of this license or (at your option) any later
+% version. The latest version of this license is in:
+%
+%    http://www.latex-project.org/lppl.txt
+%
+% and version 1.2 or later is part of all distributions of
+% LaTeX version 1999/12/01 or later.
+%
+% \fi
+%
+% \iffalse
+%<*driver>
+\ProvidesFile{tikzpub.dtx}
+%</driver>
+%<class>\NeedsTeXFormat{LaTeX2e}
+%<class>\ProvidesClass{tikzpub}
+%<*package>
+    [2012/06/16 v1.0 VistaPrint business card class using TikZ]
+%</package>
+%<*driver>
+\documentclass{ltxdoc}
+\usepackage{listings}
+\usepackage[columns=2]{idxlayout}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref} % for name, email, toc
+\lstdefinestyle{LaTeX}{%
+  language=tex,
+  columns=fullflexible,
+  basicstyle=\small\ttfamily,
+  frame=single,
+  frameround=tttt,
+  lineskip={-1.5pt},
+  breaklines=false,
+}
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\begin{document}
+  \DocInput{tikzpub.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{0}
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+% \changes{v1.0}{2012/06/16}{Initial version}
+%
+% \GetFileInfo{tikzpub.dtx}
+%
+% \DoNotIndex{\begin,\end,\large,\newcommand,\NewEnviron,\BODY,\newlength,\setlength}
+% \DoNotIndex{\draw,\fill,\node,\useasboundingbox}
+% \DoNotIndex{\DeclareOption,\LoadClass,\ProcessOptions,\RequirePackage,\relax,\sf,\the}
+% \DoNotIndex{\textheight,\textwidth}
+%
+% \title{The \textsf{tikzpub} class\thanks{This document
+%   corresponds to \textsf{tikzpub}~\fileversion, dated \filedate. Vistaprint
+%   is a registered trademark of Vistaprint in the United States and/or other
+%   countries.}}
+% \author{\href{http://alex.hirzel.us/}{Alex Hirzel} \texttt{<\href{mailto:alex@hirzel.us}{alex@hirzel.us}>}}
+% \maketitle
+% \begin{abstract}
+% This class imposes a scaled TikZ coordinate system on a canvas of specificed
+% size, optionally providing a trim/bleed margin. Currently-supported
+% publication types include Vistaprint bumper stickers and business cards.
+% \end{abstract}
+%
+%
+% \tableofcontents
+%
+%
+% \section{Examples}
+% The following examples are intended to be self-explanatory for a reader with
+% basic knowledge of \LaTeX{} and TikZ. Please refer to subsequent sections of
+% this document for more detailed information on the features of this package.
+%
+% \newcommand{\examplefig}[1]{
+%   \begin{figure}[h!]
+%     \centering
+%     \setlength\fboxsep{0bp}
+%     \fbox{\includegraphics{#1}}
+%   \end{figure}
+% }
+%
+%
+% \newpage\subsection{Bumper sticker}
+% TODO
+%
+%
+% \newpage\subsection{Vistaprint business card}
+% \examplefig{examplecard.pdf}
+% \lstinputlisting[style=LaTeX]{examplecard.tex}
+% \iffalse
+%<*examplecardtex>
+\documentclass[vpbusinesscard]{tikzpub}
+\newcommand{\hacker}[1]{
+    \begin{scope}[x=#1,y=#1,scale=0.33]
+        \draw (0,0) grid[step=#1] (3,3);
+        \foreach \c in {(0,0), (1,0), (2,0), (2,1), (1,2)}
+            \fill \c + (0.5,0.5) circle (0.42);
+    \end{scope} }
+\begin{document}
+\begin{canvasarea} \begin{trimmedarea} \begin{safearea}
+
+\hacker{0.5in}
+
+\node at (0, 1) [below right] {
+    \begin{minipage}{\textwidth}
+        Joe B. Shmoe\\
+        +1 (999) 999-9999\\
+        joe@shmoe.org
+    \end{minipage} };
+
+\node at (1, 0) [above left] {
+    \begin{minipage}{\textwidth}
+       \begin{flushright}
+        Highly skilled at foo and bar\\
+        References available upon request
+        \end{flushright}
+    \end{minipage} };
+
+\end{safearea} \end{trimmedarea} \end{canvasarea}
+\end{document}
+%</examplecardtex>
+% \fi
+% \newpage
+%
+% \section{Usage}
+%
+% \subsection{Class options}
+% \index{class options>\texttt{bumpersticker}}
+% \index{class options>\texttt{vpbusinesscard}}
+% TODO
+%
+% The \index{class options>\texttt{preview}}|preview| option excludes the trim margin from the resulting document so
+% there is no area shown that is beyond the publication dimensions. This gives a
+% 'realistic' representation of what the document will look like when it
+% arrives. It is not advisable to send a file for printing that has been
+% generated with this optioa file generated with this option activated. (You
+% have been warned.)
+%
+% \subsection{Environments}
+% \DescribeEnv{canvasarea}|canvasarea| environment is the outermost,
+% \DescribeEnv{trimmedarea}|trimmedarea| nested within.
+% \DescribeEnv{safearea}|safearea| environment to adjust coordinates between
+% $(0, 0)$ and $(1, 1)$ to fit the safe printable area within the card.
+% Note that |\textheight| and |\textwidth| are set correctly for each
+% environment.
+%
+% \section{Implementation}
+% Included below are some implementation notes. The \textsf{tikzpub} class
+% is straightforward enough to serve as an example to future class authors.
+% First, some lengths are created. These are set with the proper selection of
+% package options by the user.
+% \StopEventually{\PrintChanges\PrintIndex}
+% \iffalse
+%<*class>
+% \fi
+%    \begin{macrocode}
+\newlength\tikzpub@trim
+\newlength\tikzpub@pad
+\newlength\tikzpub@width
+\newlength\tikzpub@height
+%    \end{macrocode}
+% \iffalse
+%</class>
+% \fi
+% The |width|, |height| and |trim| margin vary based on the publication type,
+% while the padding (|pad|) is largely a matter of user preference. The |trim|
+% margin is a border around the outside of the intended publication that allows
+% for bleed  and easier production. The |width| and |height| are the obvious
+% properties of each publiciation, with |pad| affecting how close the |safearea|
+% environment will place text. These lengths are controlled by specifying a
+% publication type option:
+% \begin{itemize}
+% \item \DescribeMacro{bumpersticker}an automobile bumper sticker
+% (|bumpersticker|)
+% \iffalse
+%<*class>
+% \fi
+%    \begin{macrocode}
+\DeclareOption{bumpersticker}{
+    \newcommand{\tikzpub@name}{Bumper Sticker}
+    \setlength\tikzpub@width{11in}
+    \setlength\tikzpub@height{3in}
+    \setlength\tikzpub@pad{0.25in} % Vistaprint does not specify
+    \setlength\tikzpub@trim{0.2in} }
+%    \end{macrocode}
+% \iffalse
+%</class>
+% \fi
+% \item \DescribeMacro{vpbusinesscard}a business card (|vpbusinesscard|)
+% \iffalse
+%<*class>
+% \fi
+%    \begin{macrocode}
+\DeclareOption{vpbusinesscard}{
+    \newcommand{\tikzpub@name}{Business Card}
+    \setlength\tikzpub@width{87mm}
+    \setlength\tikzpub@height{49mm}
+    \setlength\tikzpub@pad{3.5mm}
+    \setlength\tikzpub@trim{1.5mm} }
+%    \end{macrocode}
+% \iffalse
+%</class>
+% \fi
+% \end{itemize}
+% The \index{class options>\texttt{preview}}\texttt{preview} option zeroes the
+% |trim| margin of any publication type. This has the net effect of removing the
+% trim margin from the output file, providing a true-to-size version of the
+% final trimmed card.
+% \iffalse
+%<*class>
+% \fi
+%    \begin{macrocode}
+\DeclareOption{preview}{\setlength\tikzpub@trim{0bp}}
+%    \end{macrocode}
+% \iffalse
+%</class>
+% \fi
+% \iffalse
+%<*class>
+% \fi
+%    \begin{macrocode}
+\ProcessOptions\relax
+%    \end{macrocode}
+% \iffalse
+%</class>
+% \fi
+% This class makes heavy use of the \textsf{standalone} class functionality due
+% mostly to laziness on the author's part. Usage of the \textsf{environ} package
+% increases readibility and reduces author effort and finally the \textsf{calc}
+% package reduces future maintenance effort if dimensionality changes become
+% necessary.
+% \iffalse
+%<*class>
+% \fi
+%    \begin{macrocode}
+\LoadClass[cmyk,tikz,pdftex]{standalone}
+\RequirePackage{environ}
+\RequirePackage{tikz}
+\RequirePackage{calc}
+%    \end{macrocode}
+% \iffalse
+%</class>
+% \fi
+% \begin{environment}{canvasarea}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% explain canvasarea implementation
+% \iffalse
+%<*class>
+% \fi
+%    \begin{macrocode}
+\NewEnviron{canvasarea}{
+    \begin{tikzpicture}[every node/.style={inner sep=0}]
+        \useasboundingbox (-\tikzpub@trim, -\tikzpub@trim)
+            rectangle (\tikzpub@width + \tikzpub@trim,
+                       \tikzpub@height + \tikzpub@trim);
+        \setlength\textheight{\tikzpub@height + 2\tikzpub@trim}
+        \setlength\textwidth{\tikzpub@width + 2\tikzpub@trim}
+        \begin{scope}[x = \tikzpub@width  + 2\tikzpub@trim,
+                      y = \tikzpub@height + 2\tikzpub@trim,
+                      shift = {(-\tikzpub@trim, -\tikzpub@trim)}]
+            \BODY
+        \end{scope}
+    \end{tikzpicture}
+}
+%    \end{macrocode}
+% \iffalse
+%</class>
+% \fi
+% \end{environment}
+% \begin{environment}{trimmedarea}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% explain trimmedarea implementation
+% \iffalse
+%<*class>
+% \fi
+%    \begin{macrocode}
+\NewEnviron{trimmedarea}{
+    \useasboundingbox (\tikzpub@trim, \tikzpub@trim)
+                      rectangle
+                      (\tikzpub@width + \tikzpub@trim,
+                       \tikzpub@height + \tikzpub@trim);
+
+    \setlength\textheight{\tikzpub@height}
+    \setlength\textwidth{\tikzpub@width}
+
+    \begin{scope}[x     = \tikzpub@width,
+                  y     = \tikzpub@height,
+                  shift = {(\tikzpub@trim, \tikzpub@trim)}]
+        \BODY
+    \end{scope}
+}
+%    \end{macrocode}
+% \iffalse
+%</class>
+% \fi
+% \end{environment}
+% \begin{environment}{safearea}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% explain safearea implementation
+% \iffalse
+%<*class>
+% \fi
+%    \begin{macrocode}
+\NewEnviron{safearea}{
+    \useasboundingbox (\tikzpub@trim + \tikzpub@pad,
+                       \tikzpub@trim + \tikzpub@pad)
+                      rectangle
+                      (\tikzpub@width, \tikzpub@height);
+
+    \setlength\textheight{\tikzpub@height - 2\tikzpub@pad}
+    \setlength\textwidth{\tikzpub@width - 2\tikzpub@pad}
+
+    \begin{scope}[x     = \tikzpub@width - 2\tikzpub@pad,
+                  y     = \tikzpub@height - 2\tikzpub@pad,
+                  shift = {(\tikzpub@pad, \tikzpub@pad)}]
+        \BODY
+    \end{scope}
+}
+%    \end{macrocode}
+% \iffalse
+%</class>
+% \fi
+% \end{environment}
+% \begin{macro}{\tikzpub@testdocument}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The class includes the ability to generate a dummy document for testing. As an
+% example, the following incantation can be used to summon a dummy business
+% card.
+%
+% \iffalse
+%<*testvpbusinesscardtex>
+\documentclass[vpbusinesscard]{tikzpub}
+\begin{document}
+\makeatletter
+\tikzpub@testdocument
+\makeatother
+\end{document}
+%</testvpbusinesscardtex>
+%<*example>
+% \fi
+\lstinputlisting[style=LaTeX]{testvpbusinesscard.tex}
+% \iffalse
+%</example>
+% \fi
+% \begin{figure}[ht!]
+% \centering
+% \setlength\fboxsep{0bp}
+% \fbox{\includegraphics{testvpbusinesscard.pdf}}
+% \end{figure}
+%
+% \iffalse
+%<*class>
+% \fi
+%    \begin{macrocode}
+\newcommand{\tikzpub@testdocument}{
+\begin{canvasarea}
+    \tikzpub@cornerdots{red}
+    \begin{trimmedarea}
+        \tikzpub@cornerdots{green}
+        \draw[yellow] (0, 0) rectangle (1, 1);
+        \begin{safearea}
+            \tikzpub@cornerdots{blue}
+            \draw[yellow, dashed] (0, 0) rectangle (1, 1);
+
+\node at (0.5, 0.9)
+    {\large\sf\tikzpub@name};
+\node at (0.5, 0.7)
+    {Solid yellow dims: \the\tikzpub@height{} by \the\tikzpub@width};
+\node at (0.5, 0.5)
+    {Outside solid yellow: \the\tikzpub@trim{}};
+\node at (0.5, 0.3)
+    {Between yellows: \the\tikzpub@pad{}};
+
+        \end{safearea}
+    \end{trimmedarea}
+\end{canvasarea}
+}
+%    \end{macrocode}
+% \iffalse
+%</class>
+% \fi
+% \end{macro}
+%
+% \begin{macro}{\tikzpub@cornerdots}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Note that |\tikzpub@testdocument| has the useful property of displaying
+% colored dots at the edge of each important boundary; in some cases this is a
+% helpful sanity check during development.
+% \iffalse
+%<*class>
+% \fi
+%    \begin{macrocode}
+\newcommand{\tikzpub@cornerdots}[1]{
+    \foreach \c in {(0,0), (0,1), (1,0), (1,1)}
+        \fill[#1] \c circle (1mm);
+}
+%    \end{macrocode}
+% \iffalse
+%</class>
+% \fi
+% \end{macro}
+%
+% \PrintChanges
+% \PrintIndex
+% \Finale
+%
+% \iffalse meta-comment
+% Editor settings:
+%     vim:et:sw=4
+% \fi

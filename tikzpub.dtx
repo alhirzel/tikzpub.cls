@@ -266,15 +266,18 @@
 %</class>
 % \fi
 % This class makes heavy use of the \textsf{standalone} class functionality due
-% mostly to laziness on the author's part. Usage of the \textsf{environ} package
-% increases readibility and reduces author effort and finally the \textsf{calc}
-% package reduces future maintenance effort if dimensionality changes become
-% necessary.
+% mostly to laziness on the author's part. The \textsf{multi=canvasarea} option
+% is used to allow multiple output pages with the same dimension, with one page
+% per \textsf{canvasarea} environment in the document. The \textsf{varwidth}
+% option is needed to fix whitespace issues when doing this multi-page output.
+% Usage of the \textsf{environ} package increases readibility and reduces author
+% effort and finally the \textsf{calc} package reduces future maintenance effort
+% if dimensionality changes become necessary.
 % \iffalse
 %<*class>
 % \fi
 %    \begin{macrocode}
-\LoadClass[cmyk,tikz]{standalone}
+\LoadClass[cmyk,tikz,multi=canvasarea,varwidth]{standalone}
 \RequirePackage{environ}
 \RequirePackage{tikz}
 \RequirePackage{calc}

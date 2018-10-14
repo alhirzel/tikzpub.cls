@@ -227,6 +227,21 @@
 % \iffalse
 %</class>
 % \fi
+% \item \DescribeMacro{vpbookmark2x8}a 2"x8" bookmark (|vpbookmark2x8|)
+% \iffalse
+%<*class>
+% \fi
+%    \begin{macrocode}
+\DeclareOption{vpbookmark2x8}{
+    \newcommand{\tikzpub@name}{Bookmark}
+    \setlength\tikzpub@width{2in}
+    \setlength\tikzpub@height{8in}
+    \setlength\tikzpub@pad{0.00in}
+    \setlength\tikzpub@trim{0.12in} }
+%    \end{macrocode}
+% \iffalse
+%</class>
+% \fi
 % \end{itemize}
 % The \index{class options>\texttt{preview}}\texttt{preview} option zeroes the
 % |trim| margin of any publication type. This has the net effect of removing the

@@ -29,7 +29,7 @@
 \usepackage[columns=2]{idxlayout}
 \usepackage{microtype}
 \usepackage{graphicx}
-\usepackage[hidelinks]{hyperref} % for name, email, toc
+\usepackage[hidelinks]{hyperref} % for name, email, toc in class docs
 \lstdefinestyle{LaTeX}{%
   language=tex,
   columns=fullflexible,
@@ -160,8 +160,7 @@
 % there is no area shown that is beyond the publication dimensions. This gives a
 % 'realistic' representation of what the document will look like when it
 % arrives. It is not advisable to send a file for printing that has been
-% generated with this optioa file generated with this option activated. (You
-% have been warned.)
+% generated with this option activated. (You have been warned.)
 %
 % \subsection{Environments}
 % \DescribeEnv{canvasarea}|canvasarea| environment is the outermost,
@@ -192,10 +191,10 @@
 % The |width|, |height| and |trim| margin vary based on the publication type,
 % while the padding (|pad|) is largely a matter of user preference. The |trim|
 % margin is a border around the outside of the intended publication that allows
-% for bleed  and easier production. The |width| and |height| are the obvious
-% properties of each publiciation, with |pad| affecting how close the |safearea|
-% environment will place text. These lengths are controlled by specifying a
-% publication type option:
+% for bleed and easier production. The |width| and |height| are the intended
+% post-production properties of each publiciation, with |pad| affecting how
+% close the |safearea| environment will place text. These lengths are controlled
+% by specifying a publication type option:
 % \begin{itemize}
 % \item \DescribeMacro{bumpersticker}an automobile bumper sticker
 % (|bumpersticker|)

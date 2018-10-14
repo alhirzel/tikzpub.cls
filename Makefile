@@ -46,3 +46,5 @@ clean:
 	make tidy
 	rm -f ${FIGURES} ${FIGURES:.pdf=.tex} ${CLASS}.cls ${CLASS}.pdf
 
+.PHONY: default tidy clean
+

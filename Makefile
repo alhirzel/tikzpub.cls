@@ -18,6 +18,8 @@ FIGURES = examplecard.pdf testvpbusinesscard.pdf
 PDFLATEX  = pdflatex -interaction=batchmode
 MAKEINDEX = makeindex
 
+LATEX=texfot -ignore '^This is \\w*TeX|^Output written on ' -no-stderr latexmk -pdfxe -xelatex -halt-on-error
+
 default: ${CLASS}.cls ${CLASS}.pdf
 
 # Running the .ins creates the figure sources (.tex) and the .cls from the .dtx
@@ -26,7 +28,7 @@ ${CLASS}.cls ${FIGURES:.pdf=.tex}: ${CLASS}.ins ${CLASS}.dtx
 
 # Compile each figure (.tex -> .pdf) using the .cls
 %.pdf: %.tex ${CLASS}.cls
-	${PDFLATEX} $<
+	${LATEX} $<
 
 # Documentation requires figures (.tex and .pdf) and .dtx
 ${CLASS}.pdf: ${CLASS}.dtx ${FIGURES}

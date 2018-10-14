@@ -1,8 +1,11 @@
 *.aux
-*.log
-*.pdf
+*.cls
+*.fdb_latexmk
+*.fls
 *.glo
 *.idx
-*.toc
+*.log
 *.out
-*.cls
+*.pdf
+*.toc
+*.xdv

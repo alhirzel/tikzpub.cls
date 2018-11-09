@@ -11,6 +11,7 @@ x Rename canvasarea to canvas for simplicity
 x Rename examplecard.tex -> examplebusinesscard.tex
 x Rename vpbusinesscard -> businesscard
 x Eliminate other references to VistaPrint
+x Figure out how to let the user override padding on a per-document basis
 
 Add hypersetup entries for title, author, etc.
 Fix checksum prior to release

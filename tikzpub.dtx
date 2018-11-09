@@ -342,18 +342,18 @@
 %<*class>
 % \fi
 %    \begin{macrocode}
-\NewEnviron{safearea}{
-    \useasboundingbox (\tikzpub@trim + \tikzpub@pad,
-                       \tikzpub@trim + \tikzpub@pad)
+\NewEnviron{safearea}[1][\tikzpub@pad]{
+    \useasboundingbox (\dimexpr \tikzpub@trim + #1 \relax,
+                       \dimexpr \tikzpub@trim + #1 \relax)
                       rectangle
                       (\tikzpub@width, \tikzpub@height);
 
-    \setlength\textheight{\tikzpub@height - 2\tikzpub@pad}
-    \setlength\textwidth{\tikzpub@width - 2\tikzpub@pad}
+    \setlength\textheight{\dimexpr \tikzpub@height - #1 - #1 \relax}
+    \setlength\textwidth{\dimexpr \tikzpub@width  - #1 - #1 \relax}
 
-    \begin{scope}[x     = \tikzpub@width - 2\tikzpub@pad,
-                  y     = \tikzpub@height - 2\tikzpub@pad,
-                  shift = {(\tikzpub@pad, \tikzpub@pad)}]
+    \begin{scope}[x     = \tikzpub@width - #1 - #1,
+                  y     = \tikzpub@height - #1 - #1,
+                  shift = {(#1, #1)}]
         \BODY
     \end{scope}
 }

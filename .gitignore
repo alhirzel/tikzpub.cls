@@ -9,3 +9,5 @@
 *.pdf
 *.toc
 *.xdv
+example*.tex
+test*.tex

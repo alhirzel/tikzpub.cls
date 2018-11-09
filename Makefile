@@ -41,7 +41,7 @@ ${CLASS}.pdf: ${CLASS}.dtx ${FIGURES}
 	make tidy
 
 tidy:
-	rm -f $(foreach ext, aux glo gls idx ilg ind log out toc, \
+	rm -f $(foreach ext, aux fdb_latexmk fls glo gls idx ilg ind log out toc xdv, \
 	          ${CLASS}.${ext} ${FIGURES:.pdf=.${ext}})
 
 clean:

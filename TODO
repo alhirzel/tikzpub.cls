@@ -15,3 +15,4 @@ x Figure out how to let the user override padding on a per-document basis
 
 Add hypersetup entries for title, author, etc.
 Fix checksum prior to release
+Detect invalid class options and throw error, or allow for multiple options to map to one document type (preferred)

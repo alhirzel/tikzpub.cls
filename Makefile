@@ -13,7 +13,7 @@
 #
 
 CLASS   = tikzpub
-FIGURES = examplecard.pdf testvpbusinesscard.pdf
+FIGURES = examplebusinesscard.pdf testbusinesscard.pdf
 
 PDFLATEX  = pdflatex -interaction=batchmode
 MAKEINDEX = makeindex

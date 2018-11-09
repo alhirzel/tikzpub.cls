@@ -8,6 +8,9 @@ x Figure out why the index sucks balls
 x Make index into two columns
 x Clean up the Makefile's rm -f'ing
 x Rename canvasarea to canvas for simplicity
+x Rename examplecard.tex -> examplebusinesscard.tex
+x Rename vpbusinesscard -> businesscard
+x Eliminate other references to VistaPrint
 
 Add hypersetup entries for title, author, etc.
 Fix checksum prior to release

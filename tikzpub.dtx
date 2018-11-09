@@ -124,7 +124,7 @@
             \fill \c + (0.5,0.5) circle (0.42);
     \end{scope} }
 \begin{document}
-\begin{canvasarea} \begin{trimmedarea} \begin{safearea}
+\begin{canvas} \begin{trimmedarea} \begin{safearea}
 
 \hacker{0.5in}
 
@@ -143,7 +143,7 @@
         \end{flushright}
     \end{minipage} };
 
-\end{safearea} \end{trimmedarea} \end{canvasarea}
+\end{safearea} \end{trimmedarea} \end{canvas}
 \end{document}
 %</examplecardtex>
 % \fi
@@ -163,7 +163,7 @@
 % generated with this option activated. (You have been warned.)
 %
 % \subsection{Environments}
-% \DescribeEnv{canvasarea}|canvasarea| environment is the outermost,
+% \DescribeEnv{canvas}|canvas| environment is the outermost,
 % \DescribeEnv{trimmedarea}|trimmedarea| nested within.
 % \DescribeEnv{safearea}|safearea| environment to adjust coordinates between
 % $(0, 0)$ and $(1, 1)$ to fit the safe printable area within the card.
@@ -266,9 +266,9 @@
 %</class>
 % \fi
 % This class makes heavy use of the \textsf{standalone} class functionality due
-% mostly to laziness on the author's part. The \textsf{multi=canvasarea} option
+% mostly to laziness on the author's part. The \textsf{multi=canvas} option
 % is used to allow multiple output pages with the same dimension, with one page
-% per \textsf{canvasarea} environment in the document. The \textsf{varwidth}
+% per \textsf{canvas} environment in the document. The \textsf{varwidth}
 % option is needed to fix whitespace issues when doing this multi-page output.
 % Usage of the \textsf{environ} package increases readibility and reduces author
 % effort and finally the \textsf{calc} package reduces future maintenance effort
@@ -277,7 +277,7 @@
 %<*class>
 % \fi
 %    \begin{macrocode}
-\LoadClass[cmyk,tikz,multi=canvasarea,varwidth]{standalone}
+\LoadClass[cmyk,tikz,multi=canvas,varwidth]{standalone}
 \RequirePackage{environ}
 \RequirePackage{tikz}
 \RequirePackage{calc}
@@ -285,13 +285,13 @@
 % \iffalse
 %</class>
 % \fi
-% \begin{environment}{canvasarea}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% explain canvasarea implementation
+% \begin{environment}{canvas}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% explain canvas implementation
 % \iffalse
 %<*class>
 % \fi
 %    \begin{macrocode}
-\NewEnviron{canvasarea}{
+\NewEnviron{canvas}{
     \begin{tikzpicture}[every node/.style={inner sep=0}]
         \useasboundingbox (-\tikzpub@trim, -\tikzpub@trim)
             rectangle (\tikzpub@width + \tikzpub@trim,
@@ -393,7 +393,7 @@
 % \fi
 %    \begin{macrocode}
 \newcommand{\tikzpub@testdocument}{
-\begin{canvasarea}
+\begin{canvas}
     \tikzpub@cornerdots{red}
     \draw[red, dashed] (0, 0) rectangle (1, 1);
     \begin{trimmedarea}
@@ -414,7 +414,7 @@
 
         \end{safearea}
     \end{trimmedarea}
-\end{canvasarea}
+\end{canvas}
 }
 %    \end{macrocode}
 % \iffalse

@@ -156,11 +156,12 @@
 % \index{class options>\texttt{businesscard}}
 % TODO
 %
-% The \index{class options>\texttt{preview}}|preview| option excludes the trim margin from the resulting document so
-% there is no area shown that is beyond the publication dimensions. This gives a
-% 'realistic' representation of what the document will look like when it
-% arrives. It is not advisable to send a file for printing that has been
-% generated with this option activated. (You have been warned.)
+% The \index{class options>\texttt{preview}}|preview| option excludes the trim
+% margin from the resulting document so there is no area shown that is beyond
+% the publication dimensions. This gives a 'realistic' representation of what
+% the document will look like when it arrives. It is not advisable to send a
+% file for printing that has been generated with this option activated. (You
+% have been warned.)
 %
 % \subsection{Environments}
 % \DescribeEnv{canvas}|canvas| environment is the outermost,
@@ -171,10 +172,10 @@
 % environment.
 %
 % \section{Implementation}
-% Included below are some implementation notes. The \textsf{tikzpub} class
-% is straightforward enough to serve as an example to future class authors.
-% First, some lengths are created. These are set with the proper selection of
-% package options by the user.
+% Included below are some implementation notes. The \textsf{tikzpub} class is
+% straightforward enough to serve as an example to future class authors. First,
+% some lengths are created. These are set with the proper selection of package
+% options by the user.
 % \StopEventually{\PrintChanges\PrintIndex}
 % \iffalse
 %<*class>
@@ -403,14 +404,10 @@
             \tikzpub@cornerdots{green}
             \draw[green, dashed] (0, 0) rectangle (1, 1);
 
-\node at (0.5, 0.9)
-    {\large\sf\textbf\tikzpub@name};
-\node at (0.5, 0.7)
-    {Page (orange): \the\tikzpub@height{} by \the\tikzpub@width};
-\node at (0.5, 0.5)
-    {Bleed area: \the\tikzpub@trim{}};
-\node at (0.5, 0.3)
-    {Inside padding: \the\tikzpub@pad{}};
+\node at (0.5, 0.9) {\large\sf\textbf\tikzpub@name};
+\node at (0.5, 0.7) {Page (orange): \the\tikzpub@height{} by \the\tikzpub@width};
+\node at (0.5, 0.5) {Bleed area: \the\tikzpub@trim{}};
+\node at (0.5, 0.3) {Inside padding: \the\tikzpub@pad{}};
 
         \end{safearea}
     \end{trimmedarea}
